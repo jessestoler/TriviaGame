@@ -1,114 +1,143 @@
 $(document).ready(function() {
-
-var countdown = 15;
-var counter = 0;
-var end;
-var expire;
-var fin;
-var questionSet = [$("#questionOne"), $("#questionTwo"), $("#questionThree"), $("#questionFour"), $("#questionFive"), $("#questionSix"), $("#questionSeven"), $("#questionEight"), $("#questionNine"), $("#questionTen"), $("#you")];
-var rightCounter = 0;
-var timesUp;
-var wrongCounter = 0;
-
-$(".right").on("click", correct);
-$("#start").on("click", clock);
-$("#start").on("click", go); 
-$(".wrong").on("click", incorrect);
+    var countdown = 15;
+    var counter = 0;
+    var decrease;
+    var diminish;
+    var end;
+    var expire;
+    var questionSet = [$("#questionOne"), $("#questionTwo"), $("#questionThree"), $("#questionFour"), $("#questionFive"), $("#questionSix"), $("#questionSeven"), $("#questionEight"), $("#questionNine"), $("#questionTen"), $("#you")];
+    var rightCounter = 0;
+    var wrongCounter = 0;
     
-function clock() {
+    $(".right").on("click", correct);
+    $("#start").on("click", clock);
+    $("#start").on("click", go); 
+    $(".wrong").on("click", incorrect);
         
-        setInterval(function(){ countdown--; }, 1000);
-        
-        
-        setInterval(function(){ $("#timer").html(countdown); }, 1000);
-        
+    function clock() {
+            
+            decrease = setInterval(function(){ countdown--; }, 1000);
+            
+            
+            diminish = setInterval(function(){ $("#timer").html(countdown); }, 1000);
+            
+             
+        }
+    
+        function correct() {
+            
+            setTimeout(function() { questionSet.shift(); }, 4975);
+            setTimeout(function() { (questionSet[0]).remove(); }, 4950);
+            
+            $(".guess").css("pointer-events", "none");
+            setTimeout(function() {  $(".guess").css("pointer-events", "auto"); }, 4975);
+           
+            $(".right").css("font-weight", "bold");
+           
+            
+            
+            setTimeout(function() { questionSet[0].css("visibility", "visible"); }, 5000);
+            
+            clearInterval(decrease);
+          
+            clearInterval(diminish);
+            setTimeout(function() { countdown = 15; }, 5000);
+            setTimeout(function() { $("#timer").html(countdown); }, 5000);
+            setTimeout(function() { clock(); }, 5000);
+            
+            clearTimeout(expire);
+           
+            
          
-    }
-
-    function correct() {
-        $("#timer").remove();
-        setTimeout(function() { questionSet.shift(); }, 4975);
-        setTimeout(function() { (questionSet[0]).remove(); }, 4950);
-       
-        setTimeout(function() { questionSet[0].css("visibility", "visible"); }, 5000);
-        
-        setTimeout(function() { countdown = 16; }, 5000);
-        clearTimeout(fin);
-        clearTimeout(timesUp);
-        clearTimeout(expire);
-        $(".right").css("font-weight", "bold");
-        $(".result").html("You're Right!");
-        setTimeout(function() { $(".result").html(""); }, 5000);
-        setTimeout(function() { $(".right").css("font-weight", "normal"); }, 5000);
-        fin = setTimeout(function() { $(".result").html("Time's Up!"); }, 20000);
-        rightCounter++;
-        $("#wins").html(rightCounter);
-        counter++;
-        clearTimeout(end);
-        timesUp = setTimeout(function() { $(".result").html("Time's Up!"); }, 20000);
-        expire =  setTimeout(function() { incorrect(); }, 20000);
-
-        if (rightCounter < wrongCounter) {
-            $("#you").html("You Lose");
-        }
-        else if (rightCounter == wrongCounter) {
-            $("#you").html("You Tied"); 
-        }
-        else {
-            $("#you").html("You Win!");
-        }
-        
-    } 
-
-   
-
-    function go() {
-        
-        $("#scoreboard").css("visibility", "visible");
-        questionSet[0].css("visibility", "visible");
-        $("#start").remove();
-        timesUp = setTimeout(function() { $(".result").html("Time's Up!"); }, 15000);
-        end = setTimeout(function() { incorrect(); }, 15000);
-        
-        }
-
+            setTimeout(function() { $(".right").css("font-weight", "normal"); }, 5000);
+            
+            rightCounter++;
+            $("#wins").html(rightCounter);
+            counter++;
+            clearTimeout(end);
+           
+            expire =  setTimeout(function() { incorrect(); }, 20000);
     
-
-    function incorrect() {
-        $("#timer").remove();
-        setTimeout(function() { questionSet.shift(); }, 4975);
-        setTimeout(function() { (questionSet[0]).remove(); }, 4950);
+            if (rightCounter < wrongCounter) {
+                $("#you").html("You Lose");
+            }
+            else if (rightCounter == wrongCounter) {
+                $("#you").html("You Tied"); 
+            }
+            else {
+                $("#you").html("You Win!");
+            }
+    
+            if (counter == 10) {
+                setTimeout(function() { $("#timer").remove(); }, 5000);
+            }
+            
+        } 
+    
        
-        setTimeout(function() { questionSet[0].css("visibility", "visible"); }, 5000);
+    
+        function go() {
+            
+            $("#scoreboard").css("visibility", "visible");
+            $("#timer").css("visibility", "visible");
+            questionSet[0].css("visibility", "visible");
+            $("#start").remove();
+           
+            end = setTimeout(function() { incorrect(); }, 15000);
+            
+            }
+    
         
-        setTimeout(function() { countdown = 16; }, 5000);
-        clearTimeout(timesUp);
-        clearTimeout(fin);
-        clearTimeout(expire);
-
-        $(".right").css("font-weight", "bold");
-        $(".result").html("You're Wrong");
-        setTimeout(function() { $(".result").html(""); }, 5000);
-        setTimeout(function() { $(".right").css("font-weight", "normal"); }, 5000);
-        fin = setTimeout(function() { $(".result").html("Time's Up!"); }, 20000);
-        wrongCounter++;
-        $("#losses").html(wrongCounter);
-        counter++;
-        clearTimeout(end);
-        timesUp = setTimeout(function() { $(".result").html("Time's Up!"); }, 20000);
-        expire =  setTimeout(function() { incorrect(); }, 20000);
-        
-        if (rightCounter < wrongCounter) {
-            $("#you").html("You Lose");
+    
+        function incorrect() {
+            
+            $(".right").css("font-weight", "bold");
+            setTimeout(function() { questionSet.shift(); }, 4975);
+            setTimeout(function() { (questionSet[0]).remove(); }, 4950);
+            $(".guess").css("pointer-events", "none");
+            setTimeout(function() {  $(".guess").css("pointer-events", "auto"); }, 4975);
+    
+    
+            setTimeout(function() { questionSet[0].css("visibility", "visible"); }, 5000);
+            
+            
+            clearInterval(decrease);
+            clearInterval(diminish);
+            setTimeout(function() { countdown = 15; }, 5000);
+            setTimeout(function() { $("#timer").html(countdown); }, 5000);
+           
+            setTimeout(function() { clock(); }, 5000);
+            
+           
+            clearTimeout(expire);
+    
+            
+           
+            
+            setTimeout(function() { $(".right").css("font-weight", "normal"); }, 5000);
+            
+            wrongCounter++;
+            $("#losses").html(wrongCounter);
+            counter++;
+            clearTimeout(end);
+            
+            expire =  setTimeout(function() { incorrect(); }, 20000);
+            
+            if (rightCounter < wrongCounter) {
+                $("#you").html("You Lose");
+            }
+            else if (rightCounter == wrongCounter) {
+                $("#you").html("Tie Game"); 
+            }
+            else {
+                $("#you").html("You Win!");
+            }
+    
+            if (counter == 10) {
+                setTimeout(function() { $("#timer").remove(); }, 5000);
+            }
+            
         }
-        else if (rightCounter == wrongCounter) {
-            $("#you").html("You Tied"); 
-        }
-        else {
-            $("#you").html("You Win!");
-        }
-        
-    }
-});
+    });
 
     

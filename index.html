@@ -3,42 +3,14 @@
 <head>
     
     <link href="style.css" rel="stylesheet" type="text/css"> 
+    
+    <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah" rel="stylesheet">
      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="index.js"></script>
-    <style>
-    input {
-        height: 15px;
-        margin-top: 25px;
-        width: 15%;
-    }
-
-    .question {
-        visibility: hidden;
-    }
-
-    #scoreboard {
-        visibility: hidden;
-    }
-
-
-    #wrapper {
-        background-color: yellow;
-        height: 2500px;
-        margin-left: 10%;
-        margin-right: 10%;
-        padding-left: 5%;
-        padding-right: 5%;
-        text-align: center;
-    }
-
-    #you {
-        visibility: hidden;
-    }
-    </style>
     <title>I Love the 90s!</title>
 </head>
 <body>
@@ -47,22 +19,28 @@
     <p>Think you know the 90s? Press start to test your knowledge!</p>
     <input id="start" type="button" value="start">
     <div id="scoreboard">
-        <p>Correct Guesses: <span id="wins">0</span><br>Wrong Guesses: <span id="losses">0</span></p>
+        <p>Right: <span id="wins">0</span><br><br>Wrong: <span id="losses">0</span></p>
     </div>
-    
+
+        
+            <div id="timer">
+
+            </div>
+         
+    <div id="questions"> 
         <div class="question" id="questionOne">
             <h4>Who was the King of Sweden until his death in 1195?</h4>
             <p class="guess wrong">Birger</p>
             <p class="guess wrong">Halsten Stenkilsson</p>
             <p class="guess right">Knut Eriksson</p>
             <p class="guess wrong">Magnus IV Ericson</p>
-            <div id="timer">
-
-                </div>
-                <div class="result">
-        
-                </div>
+            
         </div>
+            
+                
+
+                
+        
 
         
         
@@ -72,13 +50,13 @@
                 <p class="guess wrong">1293</p>
                 <p class="guess wrong">1296</p>
                 <p class="guess wrong">1299</p>
-                <div id="timer">
-
-                    </div>
-                    <div class="result">
-            
-                    </div>
+                
             </div>
+                
+                    
+
+                    
+            
 
         <div class="question" id="questionThree">
                     <h4>Which republic did France conquer in 1396?</h4>
@@ -86,13 +64,10 @@
                     <p class="guess wrong">Bursa</p>
                     <p class="guess right">Genoa</p>
                     <p class="guess wrong">Kartid</p>
-                    <div id="timer">
-        
-                        </div>
-                        <div class="result">
-                
-                        </div>
+                    
                 </div>
+                
+               
 
         <div class="question" id="questionFour">
                         <h4>In 1493, England imposed sanctions on Burgundy for supporting this pretender to the throne?</h4>
@@ -100,13 +75,11 @@
                         <p class="guess wrong">Merkin Muffley</p>
                         <p class="guess right">Perkin Warbeck</p>
                         <p class="guess wrong">Rauf Phillips</p>
-                        <div id="timer">
-            
-                            </div>
-                            <div class="result">
-                    
-                            </div>
+                      
+                        
                     </div>
+                
+                    
 
         <div class="question" id="questionFive">
                         <h4>Which year is believed to have had the worst known hurricane season in the Atlantic prior to 1600?</h4>
@@ -114,13 +87,10 @@
                         <p class="guess wrong">1592</p>
                         <p class="guess wrong">1597</p>
                         <p class="guess wrong">1599</p>
-                        <div id="timer">
-            
-                            </div>
-                            <div class="result">
-                    
-                            </div>
+                        
                     </div>
+                
+                    
 
         <div class="question" id="questionSix">
                             <h4>In 1695, what led many people in England to put bricks in their windows?</h4>
@@ -128,13 +98,11 @@
                             <p class="guess wrong">Outbreak of the plague</p>
                             <p class="guess wrong">The greatest dust storm in England's history</p>
                             <p class="guess wrong">The sound of cannons fending off the invading Spanish</p>
-                            <div id="timer">
-                
-                                </div>
-                                <div class="result">
-                        
-                                </div>
+                            
+                            
                         </div>
+                
+                        
 
         <div class="question" id="questionSeven">
                                 <h4>Who rode with a force of 13,000 militiamen to fend off the Whiskey Rebellion in 1794?</h4>
@@ -142,13 +110,11 @@
                                 <p class="guess right">George Washington</p>
                                 <p class="guess wrong">Thomas Jefferson</p>
                                 <p class="guess wrong">Thomas Paine</p>
-                                <div id="timer">
-                    
-                                    </div>
-                                    <div class="result">
-                            
-                                    </div>
+                                
+                                
                             </div>
+                
+                            
 
         <div class="question" id="questionEight">
                                     <h4>Which legendary football club came to be in 1894?</h4>
@@ -156,27 +122,22 @@
                                     <p class="guess right">Manchester City</p>
                                     <p class="guess wrong">Manchester United</p>
                                     <p class="guess wrong">Tottenham</p>
-                                    <div id="timer">
-                        
-                                        </div>
-                                        <div class="result">
-                                
-                                        </div>
+                                    
                                 </div>
+                
+                                
 
         <div class="question" id="questionNine">
-                                        <h4>What virus that writes code between the lines of existing code was accidentally created in 1998?</h4>
+                                        <h4>Which virus that writes code between the lines of existing code was accidentally created in 1998?</h4>
                                         <p class="guess right">CIH</p>
                                         <p class="guess wrong">ILOVEYOU</p>
                                         <p class="guess wrong">MyDoom</p>
                                         <p class="guess wrong">Storm Worm</p>
-                                        <div id="timer">
-                            
-                                            </div>
-                                            <div class="result">
-                                    
-                                            </div>
+                                        
+                                        
                                     </div>
+                
+                                    
 
         <div class="question" id="questionTen">
                                             <h4>In 2094, which robot army will assume leadership of the United States after its highly controversial action of crushing the head of sitting President Jeff Bezos IV?</h4>
@@ -184,20 +145,19 @@
                                             <p class="guess ten wrong">The Ramones</p>
                                             <p class="guess ten wrong">The Sex Pistols</p>
                                             <p class="guess ten right">The Stooges</p>
-                                            <div id="timer">
-                                
-                                                </div>
-                                                <div class="result">
-                                        
-                                                </div>
-                                        </div>
-                                        
-                                                <h2 id="you"></h2>
                                             
+                                            
+                                        </div>
+                
+                                        
+                                    
+                                        
+                                    </div>   
 
-        
+                                    <h2 id="you"></h2>
         
     </div>
+    
     
 </body>
 </html>
