@@ -1,13 +1,13 @@
 $(document).ready(function() {
-    var countdown = 15;
-    var counter = 0;
-    var decrease;
-    var diminish;
-    var end;
-    var expire;
-    var questionSet = [$("#questionOne"), $("#questionTwo"), $("#questionThree"), $("#questionFour"), $("#questionFive"), $("#questionSix"), $("#questionSeven"), $("#questionEight"), $("#questionNine"), $("#questionTen"), $("#you")];
-    var rightCounter = 0;
-    var wrongCounter = 0;
+    let countdown = 15;
+    let counter = 0;
+    let decrease;
+    let diminish;
+    let end;
+    let expire;
+    let questionSet = [$("#questionOne"), $("#questionTwo"), $("#questionThree"), $("#questionFour"), $("#questionFive"), $("#questionSix"), $("#questionSeven"), $("#questionEight"), $("#questionNine"), $("#questionTen"), $("#you")];
+    let rightCounter = 0;
+    let wrongCounter = 0;
     
     $(".right").on("click", correct);
     $("#start").on("click", clock);
